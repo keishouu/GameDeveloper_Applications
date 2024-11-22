@@ -1,0 +1,162 @@
+body {
+    height: auto;
+    background-color: #A2C0EC;
+    background-image: linear-gradient(#A2C0EC, #D2DDED);
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.container{
+    background-color: white;
+    width: 90vw;
+    height: 79vh;
+    margin: 8vh auto 7vh auto;
+    border-radius: 50px;
+    padding: 3vh 0;
+}
+
+h1 {
+    font-size: 8vh;
+    margin-left: 5vw;
+}
+
+.formsections{
+    display: flex;
+    justify-content: space-around;
+    width: 70vw;
+    margin: 8vh auto;
+}
+.formone, .formtwo {
+    height: 80%;
+    width: 30vw;
+}
+label, input {
+    width: 100%;
+    font-size: 3vh;
+}
+
+label {
+    font-weight: bold;
+}
+
+input{
+    height: 4vh;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.userdetails {
+    margin: 2vh auto;
+    width: 80vw;
+    height: 50vh;
+}
+
+.submit {
+    background-color: #5898D3;
+    position: absolute;
+    bottom: 15vh;
+    right: 10vw;
+    height: 7vh;
+    width: 10vw;
+    border: 0;
+    border-radius: 15px;
+    color: white;
+    font-size: 3vh;
+    cursor: pointer;
+}
+
+.delete {
+    background-color: #D3585A;
+    position: absolute;
+    bottom: 15vh;
+    right: 10vw;
+    height: 7vh;
+    width: 10vw;
+    border: 0;
+    border-radius: 15px;
+    color: white;
+    font-size: 3vh;
+    cursor: pointer;
+}
+
+.homebtn {
+    background-color: #424154;
+    position: fixed;
+    bottom: 1vh;
+    left: -1vw;
+    height: 7vh;
+    width: 6vw;
+    border: 0;
+    padding-left: 2vw;
+    border-radius: 0 15px 15px 0;
+    color: white;
+    font-size: 3vh;
+    cursor: pointer;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+
+}
+
+.text {
+    rotate: 32deg;
+    width: 14vw;
+    height: 28vh;
+}
+
+.del {
+    rotate: 12deg;
+    width: 12vw;
+    height: 24vh;
+}
+
+.console {
+    rotate: -32deg;
+    width: 12vw;
+    height: 24vh;
+}
+
+.bling {
+    position: absolute;
+    top: 7vh;
+    right: 3vw;
+    width: 5vw;
+    height: 10vh;
+    object-fit: contain;
+    rotate: 22deg;
+}
+
+.bling1 {
+    position: absolute;
+    bottom: 7vh;
+    right: 3vw;
+    width: 5vw;
+    height: 10vh;
+    object-fit: contain;
+    rotate: 2deg;
+}
+
+.bling2 {
+    position: absolute;
+    bottom: 30vh;
+    left: 1vw;
+    width: 5vw;
+    height: 15vh;
+    width: 7.5vw;
+    object-fit: contain;
+    rotate: -30deg;
+}
+.bling3 {
+    position: absolute;
+    bottom: 22vh;
+    left: 1vw;
+    width: 5vw;
+    height: 10vh;
+    width: 5vw;
+    object-fit: contain;
+    rotate: -10deg;
+}
+
