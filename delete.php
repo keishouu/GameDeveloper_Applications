@@ -27,7 +27,7 @@
 			<h2>Email: <?php echo $getUserByDeveloper_id['email']; ?></h2>
 			<h2>Phone Number: <?php echo $getUserByDeveloper_id['phonenumber']; ?></h2>
 			<h2>Role: <?php echo $getUserByDeveloper_id['role']; ?></h2>
-			<h2>Games Worked On: <?php echo $getUserByDeveloper_id['games_worked_on']; ?></h2>
+			<h2>years of Experience: <?php echo $getUserByDeveloper_id['years_of_exp']; ?></h2>
 			<h2>Skills: <?php echo $getUserByDeveloper_id['skills']; ?></h2>
 			<h2>Preferred Game Genre: <?php echo $getUserByDeveloper_id['pref_game_genre']; ?></h2>
 		</div>

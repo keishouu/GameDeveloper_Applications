@@ -8,7 +8,7 @@ CREATE TABLE user_accounts (
 );
 
 create table game_developers (
-	developer_id INT,
+	developer_id INT PRIMARY KEY AUTO_INCREMENT,
 	firstname VARCHAR(50),
 	lastname VARCHAR(50),
 	email VARCHAR(50),
@@ -17,7 +17,7 @@ create table game_developers (
 	years_of_exp INT,
 	skills VARCHAR(25),
 	pref_game_genre VARCHAR(11),
-	date_added DATE
+	date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 insert into game_developers (developer_id, firstname, lastname, email, phonenumber, role, years_of_exp, skills, pref_game_genre, date_added) values (1, 'Raddie', 'Reimer', 'rreimer0@slashdot.org', '468-601-5100', 'Financial Analyst', 6, 'Game Development Tools', 'Sports', '2005-03-29 06:01:16');
 insert into game_developers (developer_id, firstname, lastname, email, phonenumber, role, years_of_exp, skills, pref_game_genre, date_added) values (2, 'Fee', 'Polglaze', 'fpolglaze1@networkadvertising.org', '415-925-3760', 'Senior Sales Associate', 29, 'Physics Programming', 'Shooter', '2016-07-26 14:45:17');

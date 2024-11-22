@@ -1,7 +1,5 @@
 <?php  
 
-require_once 'dbConfig.php';
-
 function checkIfUserExists($pdo, $username) {
 	$response = array();
 	$sql = "SELECT * FROM user_accounts WHERE username = ?";
@@ -32,7 +30,7 @@ function checkIfUserExists($pdo, $username) {
 
 }
 
-
+require_once 'dbConfig.php';
 
 function insertNewUser($pdo, $username, $firstname, $lastname, $password) {
 	$response = array();
@@ -106,36 +104,34 @@ function searchForAGameDev($pdo, $searchQuery) {
 }
 
 
-
 function insertNewGameDev($pdo, $firstname, $lastname, $email, 
-	$phonenumber, $role, $years_of_exp, $skills, $pref_game_genre) {
+    $phonenumber, $role, $years_of_exp, $skills, $pref_game_genre) {
 
-	$sql = "INSERT INTO game_developers 
-			(
-				firstname,
-				lastname,
-				email,
-				phonenumber,
+    $sql = "INSERT INTO game_developers 
+            (
+                firstname,
+                lastname,
+                email,
+                phonenumber,
                 role,
                 years_of_exp,
                 skills,
-                pref_game_genre
-			)
-			VALUES (?,?,?,?,?,?,?,?)
-			";
+                pref_game_genre,
+                date_added
+            )
+            VALUES (?,?,?,?,?,?,?,?, CURRENT_TIMESTAMP)";
 
-	$stmt = $pdo->prepare($sql);
-	$executeQuery = $stmt->execute([
-		$firstname, $lastname, $email, 
-		$phonenumber, $role, $years_of_exp, 
-		$skills, $pref_game_genre,
-	]);
+    $stmt = $pdo->prepare($sql);
+    $executeQuery = $stmt->execute([
+        $firstname, $lastname, $email, 
+        $phonenumber, $role, $years_of_exp, 
+        $skills, $pref_game_genre
+    ]);
 
-	if ($executeQuery) {
-		return true;
-	}
-
+    return $executeQuery;
 }
+
+
 
 function editGameDev($pdo, $firstname, $lastname, $email, $phonenumber, 
 	$role, $years_of_exp, $skills, $pref_game_genre, $developer_id) {

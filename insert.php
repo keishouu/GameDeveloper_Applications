@@ -58,9 +58,9 @@
 			<input type="text" name="pref_game_genre">
 			
 		</p>
-		</div>
 		<button class="submit" type="submit" name="insertGameDevBtn">Save</button>
 		</div>
+</div>
 	</form>
 	<button class="homebtn" onclick="window.location.href='index.php';"><i class="fa-solid fa-house"></i></button>
 	</div>
