@@ -39,7 +39,7 @@ body {
 
 .container{
     background-color: white;
-    width: 90vw;
+    width: 92vw;
     height: auto;
     margin: 15vh auto 10vh auto;
     border-radius: 50px;
@@ -180,7 +180,7 @@ img {
 }
 
 .tablecontainer {
-    width: 85vw;
+    width: 90vw;
     height: auto;
     margin: 0 auto; 
     overflow-x: hidden;
@@ -215,11 +215,16 @@ td {
 }
 
 th.email, td.email {
-    width: 15%;
+    width: 14%;
 }
 
 th.phone, td.phone {
-    width: 8%;
+    width: 7%;
+}
+
+th.yrsexp, td.yrsexp {
+    width: 3vw;
+    text-align: center;
 }
 
 a {

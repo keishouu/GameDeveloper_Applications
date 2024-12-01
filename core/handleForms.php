@@ -86,23 +86,35 @@ if (isset($_GET['logoutUserBtn'])) {
 
 
 if (isset($_POST['insertGameDevBtn'])) {
-	$insertUser = insertNewGameDev($pdo,$_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['phonenumber'], $_POST['role'], $_POST['years_of_exp'], $_POST['skills'], $_POST['pref_game_genre']);
+    $created_by = $_SESSION['username'];
+    $insertUser = insertNewGameDev(
+        $pdo, $_POST['firstname'], $_POST['lastname'], $_POST['email'], 
+        $_POST['phonenumber'], $_POST['role'], $_POST['years_of_exp'], 
+        $_POST['skills'], $_POST['pref_game_genre'], $created_by
+    );
 
-	if ($insertUser) {
-		$_SESSION['message'] = "Successfully inserted!";
-		header("Location: ../index.php");
-	}
+    if ($insertUser) {
+        $_SESSION['message'] = "Successfully inserted!";
+        header("Location: ../index.php");
+    }
 }
+
 
 
 if (isset($_POST['editGameDevBtn'])) {
-	$editUser = editGameDev($pdo,$_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['phonenumber'], $_POST['role'], $_POST['years_of_exp'], $_POST['skills'], $_POST['pref_game_genre'], $_GET['developer_id']);
+    $updated_by = $_SESSION['username'];
+    $editUser = editGameDev(
+        $pdo, $_POST['firstname'], $_POST['lastname'], $_POST['email'], 
+        $_POST['phonenumber'], $_POST['role'], $_POST['years_of_exp'], 
+        $_POST['skills'], $_POST['pref_game_genre'], $_GET['developer_id'], $updated_by
+    );
 
-	if ($editUser) {
-		$_SESSION['message'] = "Successfully edited!";
-		header("Location: ../index.php");
-	}
+    if ($editUser) {
+        $_SESSION['message'] = "Successfully edited!";
+        header("Location: ../index.php");
+    }
 }
+
 
 if (isset($_POST['deleteGameDevBtn'])) {
 	$deleteUser = deleteGameDev($pdo,$_GET['developer_id']);

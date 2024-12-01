@@ -76,11 +76,14 @@ if (!isset($_SESSION['username'])) {
 					<th class="email">Email</th>
 					<th class="phone">Phone Number</th>
 					<th>Role</th>
-					<th>Years of Experience</th>
+					<th class="yrsexp">Years</th>
 					<th>Skills</th>
-					<th>Preferred Game Genre</th>
+					<th>Preferred Genre</th>
 					<th>Date Added</th>
-					<th>Action</th>
+					<th>Created by</th>
+					<th>Updated By</th>
+					<th>Last Update</th>
+					<th style="width: 3.5vw;">Action</th>
 				</tr>
 
 				<?php if (!isset($_GET['searchBtn'])) { ?>
@@ -92,14 +95,18 @@ if (!isset($_SESSION['username'])) {
 								<td class="email"><?php echo $row['email']; ?></td>
 								<td class="phone"><?php echo $row['phonenumber']; ?></td>
 								<td><?php echo $row['role']; ?></td>
-								<td><?php echo $row['years_of_exp']; ?></td>
+								<td class="yrsexp"><?php echo $row['years_of_exp']; ?></td>
 								<td><?php echo $row['skills']; ?></td>
 								<td><?php echo $row['pref_game_genre']; ?></td>
-								<td><?php echo $row['date_added']; ?></td>
-								<td style="text-align: center;">
+								<td><?php echo $row['date_added']; ?></td> 
+								<td><?php echo $row['created_by']; ?></td> 
+								<td><?php echo !empty($row['updated_by']) ? $row['updated_by'] : ""; ?></td>
+								<td><?php echo $row['last_update']; ?></td> 
+								<td style="text-align: center; width: 3.5vw;"> 
 									<a style="color:#5898D3;" href="edit.php?developer_id=<?php echo $row['developer_id']; ?>">Edit</a>
 									<a style="color:#D3585A;" href="delete.php?developer_id=<?php echo $row['developer_id']; ?>">Delete</a>
 								</td>
+
 							</tr>
 					<?php } ?>
 					
@@ -112,11 +119,14 @@ if (!isset($_SESSION['username'])) {
 								<td class="email"><?php echo $row['email']; ?></td>
 								<td class="phone"><?php echo $row['phonenumber']; ?></td>
 								<td><?php echo $row['role']; ?></td>
-								<td><?php echo $row['years_of_exp']; ?></td>
+								<td class="yrsexp"><?php echo $row['years_of_exp']; ?></td>
 								<td><?php echo $row['skills']; ?></td>
 								<td><?php echo $row['pref_game_genre']; ?></td>
-								<td><?php echo $row['date_added']; ?></td>
-								<td style="text-align: center;">
+								<td><?php echo $row['date_added']; ?></td> 
+								<td><?php echo $row['created_by']; ?></td> 
+								<td><?php echo !empty($row['updated_by']) ? $row['updated_by'] : ""; ?></td>
+								<td><?php echo $row['last_update']; ?></td> 
+								<td style="text-align: center; width: 3.5vw;"> 
 									<a style="color:#5898D3;" href="edit.php?developer_id=<?php echo $row['developer_id']; ?>">Edit</a>
 									<a style="color:#D3585A;" href="delete.php?developer_id=<?php echo $row['developer_id']; ?>">Delete</a>
 								</td>

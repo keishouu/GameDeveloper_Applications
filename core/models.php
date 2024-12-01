@@ -103,9 +103,8 @@ function searchForAGameDev($pdo, $searchQuery) {
 	}
 }
 
-
 function insertNewGameDev($pdo, $firstname, $lastname, $email, 
-    $phonenumber, $role, $years_of_exp, $skills, $pref_game_genre) {
+    $phonenumber, $role, $years_of_exp, $skills, $pref_game_genre, $created_by) {
 
     $sql = "INSERT INTO game_developers 
             (
@@ -117,15 +116,17 @@ function insertNewGameDev($pdo, $firstname, $lastname, $email,
                 years_of_exp,
                 skills,
                 pref_game_genre,
-                date_added
+                date_added,
+                created_by,
+                updated_by
             )
-            VALUES (?,?,?,?,?,?,?,?, CURRENT_TIMESTAMP)";
+            VALUES (?,?,?,?,?,?,?,?, CURRENT_DATE, ?, '')";
 
     $stmt = $pdo->prepare($sql);
     $executeQuery = $stmt->execute([
         $firstname, $lastname, $email, 
         $phonenumber, $role, $years_of_exp, 
-        $skills, $pref_game_genre
+        $skills, $pref_game_genre, $created_by
     ]);
 
     return $executeQuery;
@@ -133,30 +134,33 @@ function insertNewGameDev($pdo, $firstname, $lastname, $email,
 
 
 
+
+
 function editGameDev($pdo, $firstname, $lastname, $email, $phonenumber, 
-	$role, $years_of_exp, $skills, $pref_game_genre, $developer_id) {
+    $role, $years_of_exp, $skills, $pref_game_genre, $developer_id, $updated_by) {
 
-	$sql = "UPDATE game_developers
-				SET firstname = ?,
-					lastname = ?,
-					email = ?,
-					phonenumber = ?,
-					role = ?,
-					years_of_exp = ?,
-					skills = ?,
-					pref_game_genre = ?
-				WHERE developer_id = ? 
-			";
+    $sql = "UPDATE game_developers
+            SET firstname = ?,
+                lastname = ?,
+                email = ?,
+                phonenumber = ?,
+                role = ?,
+                years_of_exp = ?,
+                skills = ?,
+                pref_game_genre = ?,
+                updated_by = ?
+            WHERE developer_id = ?";
 
-	$stmt = $pdo->prepare($sql);
-	$executeQuery = $stmt->execute([$firstname, $lastname, $email, $phonenumber, 
-		$role, $years_of_exp, $skills,$pref_game_genre, $developer_id]);
+    $stmt = $pdo->prepare($sql);
+    $executeQuery = $stmt->execute([
+        $firstname, $lastname, $email, $phonenumber, 
+        $role, $years_of_exp, $skills, $pref_game_genre, 
+        $updated_by, $developer_id
+    ]);
 
-	if ($executeQuery) {
-		return true;
-	}
-
+    return $executeQuery;
 }
+
 
 
 function deleteGameDev($pdo, $developer_id) {

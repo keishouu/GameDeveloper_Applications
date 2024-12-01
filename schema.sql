@@ -17,6 +17,9 @@ create table game_developers (
 	years_of_exp INT,
 	skills VARCHAR(25),
 	pref_game_genre VARCHAR(11),
+	created_by VARCHAR(50),
+	updated_by VARCHAR(50),
+	last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 insert into game_developers (developer_id, firstname, lastname, email, phonenumber, role, years_of_exp, skills, pref_game_genre, date_added) values (1, 'Raddie', 'Reimer', 'rreimer0@slashdot.org', '468-601-5100', 'Financial Analyst', 6, 'Game Development Tools', 'Sports', '2005-03-29 06:01:16');
